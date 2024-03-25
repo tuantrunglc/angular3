@@ -1,87 +1,78 @@
-<div class="row">
-  <div class="col-md-3">
-    <span class="hipster img-fluid rounded"></span>
-  </div>
+<div class="home-page">
+  <section class="banner mt-3">
+    <img src="content/images/logos.png" alt="logo" style="width: 100px;height: 50px;">
+    <video class="w-100" [controls]="false" [loop]="true" [autoplay]="true" [muted]="true">
+      <source src="content/videos/v1.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
 
-  <div class="col-md-9">
-    <h1 class="display-4"><span jhiTranslate="home.title">Welcome, Java Hipster!</span> (Ec)</h1>
-
-    <p class="lead" jhiTranslate="home.subtitle">This is your homepage</p>
-
-    <swiper-container>
-      <swiper-slide>Slide 1</swiper-slide>
-      <swiper-slide>Slide 2</swiper-slide>
-      <swiper-slide>Slide 3</swiper-slide>
-    </swiper-container>
-    <div>
-      @if (account !== null) {
-        <div class="alert alert-success">
-          @if (account) {
-            <span id="home-logged-message" jhiTranslate="home.logged.message" [translateValues]="{ username: account.login }"
-              >You are logged in as user &quot;{{ account.login }}&quot;.</span
-            >
-          }
-        </div>
-      } @else {
-        <div class="alert alert-warning">
-          <span jhiTranslate="global.messages.info.authenticated.prefix">If you want to </span>
-          <a class="alert-link" (click)="login()" jhiTranslate="global.messages.info.authenticated.link">sign in</a
-          ><span jhiTranslate="global.messages.info.authenticated.suffix"
-            >, you can try the default accounts:<br />- Administrator (login=&quot;admin&quot; and password=&quot;admin&quot;) <br />- User
-            (login=&quot;user&quot; and password=&quot;user&quot;).</span
-          >
-        </div>
-
-        <div class="alert alert-warning">
-          <span jhiTranslate="global.messages.info.register.noaccount">You don&apos;t have an account yet?</span>&nbsp;
-          <a class="alert-link" routerLink="/account/register" jhiTranslate="global.messages.info.register.link">Register a new account</a>
-        </div>
-      }
+  </section>
+  <section class="commodity">
+    <div class="title my-3" style="font-size: 21px">- Commodity -</div>
+    <div class="commodity-list">
+      <swiper-container class="swiper" speed="500" loop="true" autoplay-delay="2500"
+                        autoplay-disable-on-interaction="false">
+        @for (commodity of commodityList; track i; let i = $index) {
+          <swiper-slide>
+            <a href="#"><img style="width: 100%;height: 280px" [src]="commodity"></a>
+          </swiper-slide>
+        }
+      </swiper-container>
     </div>
-
-    <p jhiTranslate="home.question">If you have any question on JHipster:</p>
-
-    <ul>
-      <li>
-        <a href="https://www.jhipster.tech/" target="_blank" rel="noopener noreferrer" jhiTranslate="home.link.homepage"
-          >JHipster homepage</a
+  </section>
+  <section class="membership-level container">
+    <h6 class="subtitle"> - Membership Level - </h6>
+    @for (member of memberList; track member.id) {
+      <div class="membership-card text-start" [style.background-image]="'url(' + member?.bgImg + ')'">
+        <div class="title">{{ member.title }}</div>
+        <div class="content">Required Investment &nbsp;${{ member?.reqInvest }}</div>
+        <div class="content">{{ member?.type }} Commission {{ member?.val }}%</div>
+        <div class="content">{{ member?.order }} Orders</div>
+        <div class="wrap-action d-flex mt-3">
+          <div class="action">Top up</div>
+          <div class="action ghost"> Net yet open</div>
+        </div>
+      </div>
+    }
+    <swiper-container class="swiper" slides-per-view="1" speed="500" loop="true" autoplay-delay="2500"
+                      autoplay-disable-on-interaction="false">
+      @for (memberImage of memberImageList; track i; let i = $index) {
+        <swiper-slide [attr.id]="i"><img style="width: 100%;height: 280px" [src]="memberImage"></swiper-slide>
+      }
+    </swiper-container>
+  </section>
+  <section class="ann">
+    <div class="title">- Announcement -</div>
+    <div class="ann-card">
+      <div class="" style="height: 150px; overflow: hidden">
+        <swiper-container direction="vertical"
+                          slides-per-view="4"
+                          height="150"
+                          speed="500" loop="true" autoplay-delay="2500" autoplay-disable-on-interaction="false"
         >
-      </li>
-      <li>
-        <a
-          href="https://stackoverflow.com/tags/jhipster/info"
-          target="_blank"
-          rel="noopener noreferrer"
-          jhiTranslate="home.link.stackoverflow"
-          >JHipster on Stack Overflow</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/jhipster/generator-jhipster/issues?state=open"
-          target="_blank"
-          rel="noopener noreferrer"
-          jhiTranslate="home.link.bugtracker"
-          >JHipster bug tracker</a
-        >
-      </li>
-      <li>
-        <a href="https://gitter.im/jhipster/generator-jhipster" target="_blank" rel="noopener noreferrer" jhiTranslate="home.link.chat"
-          >JHipster public chat room</a
-        >
-      </li>
-      <li>
-        <a href="https://twitter.com/jhipster" target="_blank" rel="noopener noreferrer" jhiTranslate="home.link.follow"
-          >follow &#64;jhipster on Twitter</a
-        >
-      </li>
-    </ul>
-
-    <p>
-      <span jhiTranslate="home.like">If you like JHipster, don&apos;t forget to give us a star on</span>
-      <a href="https://github.com/jhipster/generator-jhipster" target="_blank" rel="noopener noreferrer" jhiTranslate="home.github"
-        >GitHub</a
-      >!
-    </p>
-  </div>
+          @for (ann of annList; track i; let i = $index) {
+            <swiper-slide [attr.id]="i">
+              <div class="ann-item d-flex justify-content-between align-items-center" style="height: 30px">
+                <div class="content">{{ ann?.cardNumber }}</div>
+                <div class="content">Withdrawn</div>
+                <div class="content">${{ ann?.money }}</div>
+              </div>
+            </swiper-slide>
+          }
+        </swiper-container>
+      </div>
+    </div>
+  </section>
+  <section class="social-network mt-3">
+    <div class="d-flex">
+      <a class="w-20" href=""><img style="width: 25px;height: 25px;" src="content/images/l1.png" alt="instar"></a>
+      <a class="w-20" href=""><img style="width: 25px;height: 25px;" src="content/images/l2.png" alt="fb"></a>
+      <a class="w-20" href=""><img style="width: 25px;height: 25px;" src="content/images/l3.png" alt="pri"></a>
+      <a class="w-20" href=""><img style="width: 25px;height: 25px;" src="content/images/l4.png" alt="twi"></a>
+      <a class="w-20" href=""><img style="width: 25px;height: 25px;" src="content/images/l5.png" alt="ytb"></a>
+    </div>
+    <div class="text">
+      ©2024. OFF5TH  CA Transparency in Supply Chains Act
+    </div>
+  </section>
 </div>

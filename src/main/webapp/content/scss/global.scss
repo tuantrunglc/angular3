@@ -5,6 +5,15 @@
 /* ==============================================================
 Bootstrap tweaks
 ===============================================================*/
+/*@font-face {
+  font-family: 'Roboto-Regular';
+  src: url('../fonts/Roboto-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Roboto-Bold';
+  src: url('../fonts/Roboto-Regular.ttf');
+}*/
 
 body,
 h1,
@@ -107,7 +116,14 @@ Generic styles
 }
 
 .footer {
-  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  background-color: #000000;
+  margin-top: 30px;
+  p {
+    font-size: 6px;
+    line-height: 12px;
+    font-weight: normal;
+  }
+
 }
 
 .hand,
@@ -237,3 +253,64 @@ angular-cli removes postcss-rtl processed inline css, processed rules must be ad
   }
 }
 /* jhipster-needle-scss-add-main JHipster will add new css style */
+
+html {
+  font-family: 'roboto', sans-serif;
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  line-height: 22px;
+  font-weight: bold;
+}
+
+.wrapper {
+  height: auto;
+  width: 100%;
+  position: relative;
+  transition: all ease 0.5s;
+  -webkit-transition: all ease 0.5s;
+  -moz-transition: all ease 0.5s;
+  -ms-transition: all ease 0.5s;
+  margin-left: 0;
+  z-index: 1;
+  min-height: 100vh;
+}
+
+/*Custom owl nav*/
+.owl-theme .owl-nav {
+  display: none;
+}
+
+swiper-slide {
+  height: 80% !important;
+}
+
+/* Chrome safari scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 5px;
+  background: rgba(230, 230, 230, 0.4);
+}
+
+@media screen and (min-width: 750px) {
+  body {
+    width: 440px !important;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    background: #fff !important;
+  }
+}
+

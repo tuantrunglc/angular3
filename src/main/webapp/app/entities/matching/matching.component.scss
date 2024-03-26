@@ -78,3 +78,13 @@
     padding-top: 0.5rem;
   }
 }
+
+.custom-btn {
+  background-color: #00D0EA;
+  color: #ffffff;
+  border-radius: 10px;
+  &:hover {
+    border-color: #00d0eab8;
+    background: #00d0eab8;
+  }
+}

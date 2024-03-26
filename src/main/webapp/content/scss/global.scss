@@ -307,17 +307,20 @@ swiper-slide {
   height: 80% !important;
 }
 
-/*Custom btn*/
+/*Custom support collapse*/
 
-.custom-btn {
-  height: 50px;
-  background-color: #00D0EA;
-  color: #ffffff;
-  border-radius: 10px;
-  &:hover {
-    border-color: #00d0eab8;
-    background: #00d0eab8;
-    color: #ffffff;
+.ant-collapse.custom-support-collapse {
+  .ant-collapse-item {
+    background-color: #fff;
+    border-bottom: 1px solid #f2f2f2;
+  }
+  .ant-collapse-header {
+    font-size: 1rem;
+    font-weight: normal;
+    color: #444;
+    & > div {
+      display: none;
+    }
   }
 }
 

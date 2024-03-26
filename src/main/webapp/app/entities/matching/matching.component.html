@@ -1,0 +1,50 @@
+<section class=take-orders>
+  <div class="banner">
+    <img style="width: 100%" src="content/images/orders.jpg" alt="orders">
+  </div>
+  <div class="container mt-2">
+    <div class="order-card shadow">
+      <div class="text-start p-4">
+        <div class="title">Available balance</div>
+        <div class="order-number mt-2">$0.00</div>
+      </div>
+      <div class="order-check d-flex">
+        <div class="check-item">
+          <div class="check-title">Received commission</div>
+          <div class="check-number">$0.00</div>
+        </div>
+        <div class="check-item">
+          <div class="check-title">Total order quantity</div>
+          <div class="check-number">40</div>
+        </div>
+        <div class="check-item">
+          <div class="check-title">Number of orders</div>
+          <div class="check-number">9</div>
+        </div>
+      </div>
+      <div class="p-4">
+        <button class="w-100 custom-btn text-uppercase" nz-button nzSize="large" nzType="default">Take Orders</button>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="step">
+  <div class="container">
+    <h6 class="subtitle">Steps：</h6>
+    <div class="goods-tit">1. Click the "Start Task" button and follow the prompts to complete the task</div>
+    <div class="goods-tit">2. After completing the task, you can settle the commission to the balance</div>
+  </div>
+</section>
+<section class="product">
+  <div class="container">
+    <div class="row no-gutters">
+      @for (item of productList;track i;let i = $index) {
+        <div class="product-item col-6">
+          <img style="width: 196px;height: 112px;object-fit: contain" [src]="item?.img" [alt]="item?.img">
+          <div class="des">{{ item?.des }}</div>
+          <div class="price">${{ item?.price }}</div>
+        </div>
+      }
+  </div>
+  </div>
+</section>

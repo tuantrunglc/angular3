@@ -8,17 +8,20 @@ import { AccountService } from 'app/core/auth/account.service';
 import { Account } from 'app/core/auth/account.model';
 import {NgOptimizedImage} from "@angular/common";
 import {ReactiveFormsModule} from "@angular/forms";
+import {NzButtonComponent, NzButtonSize} from 'ng-zorro-antd/button';
+
 
 @Component({
   standalone: true,
   selector: 'jhi-home',
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
-  imports: [SharedModule, RouterModule, NgOptimizedImage, ReactiveFormsModule],
+  imports: [SharedModule, RouterModule, NgOptimizedImage, ReactiveFormsModule, NzButtonComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export default class HomeComponent implements OnInit, OnDestroy {
   account: Account | null = null;
+  size: NzButtonSize = 'large';
 
   private readonly destroy$ = new Subject<void>();
 

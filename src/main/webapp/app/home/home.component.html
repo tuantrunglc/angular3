@@ -5,7 +5,6 @@
       <source src="content/videos/v1.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
-
   </section>
   <section class="commodity">
     <div class="title my-3" style="font-size: 21px">- Commodity -</div>
@@ -23,7 +22,7 @@
   <section class="membership-level container">
     <h6 class="subtitle"> - Membership Level - </h6>
     @for (member of memberList; track member.id) {
-      <div class="membership-card text-start" [style.background-image]="'url(' + member?.bgImg + ')'">
+      <div class="membership-card text-start shadow" [style.background-image]="'url(' + member?.bgImg + ')'">
         <div class="title">{{ member.title }}</div>
         <div class="content">Required Investment &nbsp;${{ member?.reqInvest }}</div>
         <div class="content">{{ member?.type }} Commission {{ member?.val }}%</div>

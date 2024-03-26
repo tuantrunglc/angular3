@@ -116,6 +116,10 @@ Generic styles
 }
 
 .footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   background-color: #000000;
   margin-top: 30px;
   p {
@@ -263,10 +267,21 @@ body {
   font-size: 1.6rem;
   line-height: 22px;
   font-weight: bold;
+  overflow: hidden;
+  text-align: center;
+  jhi-app {
+    display: flex;
+    height: calc(100vh - 52px);
+    justify-content: center;
+    overflow-y: auto;
+    jhi-main {
+      display: block;
+      width: 440px;
+    }
+  }
 }
 
 .wrapper {
-  height: auto;
   width: 100%;
   position: relative;
   transition: all ease 0.5s;
@@ -275,7 +290,6 @@ body {
   -ms-transition: all ease 0.5s;
   margin-left: 0;
   z-index: 1;
-  min-height: 100vh;
 }
 
 /*Custom owl nav*/
@@ -283,9 +297,30 @@ body {
   display: none;
 }
 
+.shadow {
+  box-shadow: 0 0.3rem 0.6rem rgba(0, 0, 0, .1) !important;
+  -moz-box-shadow: 0 .3rem 0.6rem rgba(0, 0, 0, .1) !important;
+  -ms-box-shadow: 0 .3rem 0.6rem rgba(0, 0, 0, .1) !important;
+}
+
 swiper-slide {
   height: 80% !important;
 }
+
+/*Custom btn*/
+
+.custom-btn {
+  height: 50px;
+  background-color: #00D0EA;
+  color: #ffffff;
+  border-radius: 10px;
+  &:hover {
+    border-color: #00d0eab8;
+    background: #00d0eab8;
+    color: #ffffff;
+  }
+}
+
 
 /* Chrome safari scrollbar */
 ::-webkit-scrollbar {
@@ -306,11 +341,15 @@ swiper-slide {
 
 @media screen and (min-width: 750px) {
   body {
-    width: 440px !important;
     text-align: center;
     display: block;
-    margin: 0 auto;
     background: #fff !important;
+    jhi-main, .footer {
+      width: 440px !important;
+    }
+    .footer {
+      margin: 0 auto;
+    }
   }
 }
 

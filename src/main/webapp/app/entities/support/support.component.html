@@ -1,0 +1,27 @@
+<section class="banner mt-3">
+  <video class="w-100" [controls]="false" [loop]="true" [autoplay]="true" [muted]="true">
+    <source src="content/videos/v2.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div class="title">
+    Customer Service
+  </div>
+  <div class="action-support">
+    <button class="custom-btn w-100 text-uppercase" nz-button nzSize="large" nzType="default">ONLINE SERVICE</button>
+  </div>
+</section>
+
+<section class="question">
+  <div class="title">Frequently Asked Questions</div>
+  <div class="question-list">
+    <nz-collapse ngClass="custom-support-collapse" nzAccordion [nzBordered]="false">
+      @for (question of questions; track i;let i = $index) {
+        <nz-collapse-panel [nzHeader]="question.name" [nzActive]="question.active">
+          <p class="ask">{{ question.name }} content</p>
+        </nz-collapse-panel>
+      }
+    </nz-collapse>
+  </div>
+
+  <img class="w-100" src="content/images/csfoot.jpg" alt="csfoot">
+</section>
